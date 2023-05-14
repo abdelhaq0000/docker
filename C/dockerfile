@@ -1,0 +1,14 @@
+# Use a base image with gcc (GNU Compiler Collection) pre-installed
+FROM gcc:latest
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the C source code into the container
+COPY . /app
+
+# Compile the C program
+RUN gcc -o myprogram yo.c
+
+# Set the entry point to run the compiled program
+CMD ["./myprogram"]
